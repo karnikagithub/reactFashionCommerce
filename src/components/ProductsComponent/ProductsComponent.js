@@ -11,7 +11,7 @@ const Products=()=>{
     let productData= useSelector(state=>state.productReducer.products);
     
     let cartData=useSelector(state=>state.cartReducer)
-    console.log(cartData);
+    console.log(cartData,'ooooooooooooo');
     let dispatch= useDispatch();
     useEffect(()=>{
 
@@ -27,11 +27,12 @@ const Products=()=>{
         dispatch(addCartItem(product));
     }
 
-    
+    const Sortedproducts = [...productData].sort((a,b) => a.product_name.localeCompare(b.product_name))
+    // console.log(Sortedproducts,'Sortedproducts')
     return(
  
         <div className='product-container'>
-    {productData.map((eachProduct,index)=>{
+    {Sortedproducts.map((eachProduct,index)=>{
 
             
 return(
